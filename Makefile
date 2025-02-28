@@ -49,6 +49,14 @@ evaluate:
 
 
 
+# Watch for changes and trigger pipeline
+watch:
+	@echo "Watching for changes in the project directory..."
+	@while true; do \
+		inotifywait -r -e modify -e create -e delete $(PROJECT_DIR); \
+		make all; \
+	done
+
 
 
 

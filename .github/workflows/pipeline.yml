@@ -1,6 +1,5 @@
 name: ML Pipeline CI/CD
 
-# Define triggers
 on:
   push:
     branches: [ "main" ]  # Trigger on push to main branch
@@ -19,18 +18,23 @@ jobs:
         with:
           python-version: '3.9'
 
+      - name: Check Python version
+        run: python --version
+
       - name: Upgrade pip
         run: pip install --upgrade pip
 
       - name: Create virtual environment and install dependencies
         run: |
-           
-            pip install -r requirements.txt
-            echo "Dependencies installed."
-       
-      - name: prepare 
-        run: 
-            python main.py --prepare
+          python -m venv venv
+          source venv/bin/activate
+          pip install -r requirements.txt
+          echo "Dependencies installed."
+
+      - name: prepare
+        run: |
+          source venv/bin/activate
+          python main.py --prepare
 
       - name: train data
         run: make train
@@ -40,7 +44,3 @@ jobs:
 
       - name: Code quality checks
         run: make check-code
-
-
- 
-
