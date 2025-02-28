@@ -26,14 +26,14 @@ jobs:
 
       - name: Create virtual environment and install dependencies
         run: |
-          python -m venv venv
-          source venv/bin/activate
+        
           pip install -r requirements.txt
           echo "Dependencies installed."
+#          python -m venv venv
+#          source venv/bin/activate
 
       - name: prepare
         run: |
-          source venv/bin/activate
           python main.py --prepare
 
       - name: train data
