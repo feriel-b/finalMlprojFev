@@ -37,7 +37,6 @@ jobs:
       - name: Code quality checks
         run: make check-code
 
-    
 
  
 
