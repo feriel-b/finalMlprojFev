@@ -17,14 +17,18 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-version: '3.9'
+          python-version: '3.10'
 
       - name: Upgrade pip
         run: pip install --upgrade pip
 
-      - name: Install dependencies
-      #run: pip install --no-cache-dir -r requirements.txt
-        run: make install
+      - name: Create virtual environment and install dependencies
+        run: |
+          echo "Creating virtual environment and installing dependencies..."
+          python3.10 -m venv venv
+          venv/bin/pip install --upgrade pip
+          venv/bin/pip install -r requirements.txt
+          echo "Dependencies installed."
        
       - name: prepare 
         run: make prepare

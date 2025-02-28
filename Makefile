@@ -15,7 +15,7 @@ all: install check-code prepare-data train-model run-tests
 # Create virtual environment and install dependencies
 install:
 	@echo "Creating virtual environment and installing dependencies..."
-	@python3.9 -m venv $(VENV)
+	@python3 -m venv $(VENV)
 	@$(VENV)/bin/pip install --upgrade pip
 	@$(VENV)/bin/pip install -r $(REQUIREMENTS)
 	@echo "Dependencies installed."
