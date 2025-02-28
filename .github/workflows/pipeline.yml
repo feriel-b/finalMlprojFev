@@ -32,6 +32,13 @@ jobs:
 #          python -m venv venv
 #          source venv/bin/activate
 
+      - name: Debug Python paths
+        run: |
+            which python
+            python --version
+            ls -l venv/bin/python
+            ls -l /usr/bin/python 
+
       - name: prepare
         run: |
           python main.py --prepare
