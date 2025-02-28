@@ -23,8 +23,9 @@ jobs:
         run: pip install --upgrade pip
 
       - name: Install dependencies
-        run: pip install --no-cache-dir -r requirements.txt
-
+      #run: pip install --no-cache-dir -r requirements.txt
+        run: make install
+       
       - name: prepare 
         run: make prepare
 
