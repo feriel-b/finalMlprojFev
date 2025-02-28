@@ -1,0 +1,43 @@
+name: ML Pipeline CI/CD
+
+# Define triggers
+on:
+  push:
+    branches: [ "main" ]  # Trigger on push to main branch
+  pull_request:
+    branches: [ "main" ]  # Trigger on PRs targeting main branch
+
+jobs:
+  test-and-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Upgrade pip
+        run: pip install --upgrade pip
+
+      - name: Install dependencies
+        run: pip install --no-cache-dir -r requirements.txt
+
+      - name: prepare 
+        run: make prepare
+
+      - name: train data
+        run: make train
+
+      - name: eval data
+        run: make evaluate
+
+      - name: Code quality checks
+        run: make check-code
+
+    
+
+ 
+
