@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/06eadda126904fedbefc891dee830b18/artifacts
+end_time: 1740839019022
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 06eadda126904fedbefc891dee830b18
+run_name: luxuriant-toad-817
+run_uuid: 06eadda126904fedbefc891dee830b18
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740839018869
+status: 3
+tags: []
+user_id: feriel

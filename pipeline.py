@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import warnings
 import mlflow
 import mlflow.sklearn
+from mlflow.tracking import MlflowClient
 import time
 
 # warnings.filterwarnings("ignore")
@@ -79,7 +80,7 @@ def prepare_data(train_path="churn_80.csv", test_path="churn_20.csv"):
 def train_model(X_train, y_train, X_test, y_test, C=1.0, kernel="rbf", gamma="scale"):
     """Trains an SVM model and logs with MLflow, returns (model, test_accuracy)."""
 
-    with mlflow.start_run():
+    with mlflow.start_run() as run:  # Start a new MLflow run
         model = SVC(C=C, kernel=kernel, gamma=gamma, random_state=42, probability=True)
         model.fit(X_train, y_train)
 

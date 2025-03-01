@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/1c06e43cc9864cc0a706e708f6881791/artifacts
+end_time: 1740838981140
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 1c06e43cc9864cc0a706e708f6881791
+run_name: likeable-skunk-288
+run_uuid: 1c06e43cc9864cc0a706e708f6881791
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740838973051
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/533bd0c268794f5b8507d874a5ce42c4/artifacts
+end_time: 1740838957663
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 533bd0c268794f5b8507d874a5ce42c4
+run_name: wise-asp-737
+run_uuid: 533bd0c268794f5b8507d874a5ce42c4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740838950228
+status: 3
+tags: []
+user_id: feriel

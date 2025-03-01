@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/318342ed45e94cbd86179c9613671fac/artifacts
+end_time: 1740838565180
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 318342ed45e94cbd86179c9613671fac
+run_name: resilient-doe-644
+run_uuid: 318342ed45e94cbd86179c9613671fac
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740838561269
+status: 4
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/a813b7b17b9c48c68a6ee1d8675a4099/artifacts
+end_time: 1740838631776
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: a813b7b17b9c48c68a6ee1d8675a4099
+run_name: secretive-vole-383
+run_uuid: a813b7b17b9c48c68a6ee1d8675a4099
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740838628083
+status: 4
+tags: []
+user_id: feriel

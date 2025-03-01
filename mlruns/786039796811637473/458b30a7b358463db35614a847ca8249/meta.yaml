@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/458b30a7b358463db35614a847ca8249/artifacts
+end_time: 1740838950218
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 458b30a7b358463db35614a847ca8249
+run_name: clumsy-croc-410
+run_uuid: 458b30a7b358463db35614a847ca8249
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1740838942287
+status: 3
+tags: []
+user_id: feriel
