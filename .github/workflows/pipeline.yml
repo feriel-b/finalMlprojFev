@@ -18,30 +18,43 @@ jobs:
         with:
           python-version: '3.9'
 
-      
-  
-      - name: Debug Python paths
-        run: |
-            which python
-            python --version
-            ls -l venv/bin/python
-            ls -l venv/bin/python3
-  
       - name: Install dependencies
         run: |
-            pip install --upgrade pip
-            pip install -r requirements.txt
+          pip install --upgrade pip
+          pip install -r requirements.txt
 
-      - name: prepare
+  run-pipeline:
+    needs: test-and-build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install pipeline dependencies
         run: |
-          export MLFLOW_TRACKING_URI=""
+          pip install --upgrade pip
+          # In case requirements.txt does not include these, install them here
+          pip install pandas numpy matplotlib seaborn joblib scikit-learn mlflow
+
+      - name: Start MLflow server
+        run: |
+          # Start MLflow server with a SQLite backend and local artifact store in the background
+          nohup mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 127.0.0.1 --port 5000 &
+          sleep 10
+
+      - name: Prepare Data
+        run: |
           python main.py --prepare
 
-      - name: train data
-        run: make train
+      - name: Train Model
+        run: |
+          python main.py --train
 
-      - name: eval data
-        run: make evaluate
-
-      - name: Code quality checks
-        run: make check-code
+      - name: Evaluate Model
+        run: |
+          python main.py --evaluate
