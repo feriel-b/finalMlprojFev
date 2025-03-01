@@ -9,6 +9,7 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import warnings
 import mlflow
 import mlflow.sklearn
+import time
 
 # warnings.filterwarnings("ignore")
 
@@ -103,6 +104,28 @@ def train_model(X_train, y_train, X_test, y_test, C=1.0, kernel="rbf", gamma="sc
         print(
             f"✅ Model trained and logged with MLflow (C={C}, kernel={kernel}, gamma={gamma})"
         )
+        #  Register and Promote the Model 
+        client = MlflowClient()
+        model_name = "ChurnPredictionSVM"
+        # Create the registered model if it doesn't exist
+        try:
+            client.get_registered_model(model_name)
+        except Exception:
+            client.create_registered_model(model_name)
+        
+        run_id = run.info.run_id
+        model_uri = f"runs:/{run_id}/svm_model"
+        # Register the model
+        registration_result = mlflow.register_model(model_uri, model_name)
+        # Optionally wait for the registration to complete
+        time.sleep(5)
+        try:
+            client.transition_model_version_stage(
+                name=model_name, version=registration_result.version, stage="Production"
+            )
+            print(f"✅ Model version {registration_result.version} promoted to Production")
+        except Exception as e:
+            print("Model promotion skipped:", e)
 
     return model, test_acc
 
