@@ -59,14 +59,16 @@ def main(args):
 
         # Sauvegarder le meilleur modèle comme modèle par défaut
         if best_model is not None:
-            # save_model(best_model, "churn_model.joblib")
-            print(f"\n🏆 Meilleur modèle sauvegardé (Accuracy: {best_accuracy:.2f})")
-            latest_version = client.get_latest_versions("ChurnPredictionSVM")[0].version
+            try:
+                print(f"\n🏆 Meilleur modèle sauvegardé (Accuracy: {best_accuracy:.2f})")
+                latest_version = client.get_latest_versions("ChurnPredictionSVM")[0].version
 
-            # Promouvoir en Production
-            client.transition_model_version_stage(
-                name="ChurnPredictionSVM", version=latest_version, stage="Production"
-            )
+                # Promouvoir en Production
+                client.transition_model_version_stage(
+                    name="ChurnPredictionSVM", version=latest_version, stage="Production"
+                )
+            except Exception as e:
+                print("Skipping model promotion due to:", e)
 
     elif args.evaluate:
         print("\n📂 Chargement du modèle...")
