@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/fa38a2d2cddb4ebb9c60d53691362f31/artifacts
+end_time: 1741121028461
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: fa38a2d2cddb4ebb9c60d53691362f31
+run_name: loud-tern-92
+run_uuid: fa38a2d2cddb4ebb9c60d53691362f31
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741121015672
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/a67a5789854545c79d34a5aba885dc96/artifacts
+end_time: 1741180476238
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: a67a5789854545c79d34a5aba885dc96
+run_name: entertaining-cod-152
+run_uuid: a67a5789854545c79d34a5aba885dc96
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741180466851
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/e65949be70dc40caad80a16caf9ef36e/artifacts
+end_time: 1741121005341
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: e65949be70dc40caad80a16caf9ef36e
+run_name: ambitious-fowl-947
+run_uuid: e65949be70dc40caad80a16caf9ef36e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741120993765
+status: 3
+tags: []
+user_id: feriel

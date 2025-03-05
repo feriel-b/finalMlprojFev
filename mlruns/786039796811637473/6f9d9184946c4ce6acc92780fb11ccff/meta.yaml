@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/6f9d9184946c4ce6acc92780fb11ccff/artifacts
+end_time: 1741121061908
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 6f9d9184946c4ce6acc92780fb11ccff
+run_name: illustrious-deer-521
+run_uuid: 6f9d9184946c4ce6acc92780fb11ccff
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741121049433
+status: 3
+tags: []
+user_id: feriel

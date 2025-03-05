@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/902e51a8d48d495487aebf499dd73f25/artifacts
+end_time: 1741122782585
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 902e51a8d48d495487aebf499dd73f25
+run_name: invincible-bee-387
+run_uuid: 902e51a8d48d495487aebf499dd73f25
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741122781339
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,216 @@
+import joblib
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel
+from typing import Dict
+import pandas as pd
+import logging
+import uvicorn
+
+# Configure logging
+logging.basicConfig(
+    level=logging.DEBUG,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger(__name__)
+
+# Create FastAPI instance
+app = FastAPI(title="Churn Prediction API")
+
+# Load model artifacts
+try:
+    logger.info("Loading model artifacts...")
+    model = joblib.load("churn_model.joblib")
+    encoder = joblib.load("encoder.joblib")
+    scaler = joblib.load("scaler.joblib")
+    feature_names = joblib.load("feature_names.joblib")
+    logger.debug("Loaded %d feature names: %s", len(feature_names), feature_names)
+    logger.info("Artifacts loaded successfully")
+except Exception as e:
+    logger.critical("Failed to load artifacts: %s", str(e), exc_info=True)
+    raise RuntimeError("Failed to initialize API due to missing artifacts") from e
+
+# Define the expected input schema
+class InputData(BaseModel):
+    features: Dict
+
+@app.post("/predict")
+def predict(input_data: InputData):
+    logger.info("Received prediction request")
+    logger.debug("Input features: %s", input_data.features)
+
+    try:
+        # Convert input to DataFrame
+        logger.debug("Converting input to DataFrame")
+        df = pd.DataFrame([input_data.features])
+        df = df.reindex(columns=feature_names, fill_value=0)
+        logger.debug("DataFrame shape after reindexing: %s", df.shape)
+        
+        # Validate features
+        missing_features = set(feature_names) - set(df.columns)
+        if missing_features:
+            logger.error("Missing required features: %s", missing_features)
+            raise HTTPException(
+                status_code=400,
+                detail=f"Missing features: {missing_features}"
+            )
+            
+        df = df[feature_names]
+        logger.debug("Final DataFrame columns: %s", df.columns.tolist())
+
+    except Exception as e:
+        logger.error("Input processing failed: %s", str(e), exc_info=True)
+        raise HTTPException(status_code=400, detail=str(e))
+
+    try:
+        # Model prediction
+        logger.debug("Making prediction")
+        prediction = model.predict(df)
+        logger.info("Prediction successful. Result: %s", prediction[0])
+        return {"prediction": int(prediction[0])}
+
+    except Exception as e:
+        logger.error("Prediction failed: %s", str(e), exc_info=True)
+        raise HTTPException(status_code=500, detail=f"Prediction error: {e}")
+
+if __name__ == "__main__":
+    logger.info("Starting API server")
+    uvicorn.run(app, host="0.0.0.0", port=8000)
+
+
+    //////
+
+    import joblib
+import pandas as pd
+import numpy as np
+from fastapi import FastAPI, HTTPException
+from pydantic import BaseModel, validator, Field
+from typing import List, Literal, Optional
+import logging
+import uvicorn
+
+# Configure logging
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    handlers=[logging.StreamHandler()]
+)
+logger = logging.getLogger(__name__)
+
+app = FastAPI(title="Churn Prediction API")
+
+# Load artifacts during startup
+@app.on_event("startup")
+def load_artifacts():
+    try:
+        logger.info("Loading preprocessing artifacts...")
+        global encoder, scaler, feature_names, state_columns
+        encoder = joblib.load("encoder.joblib")
+        scaler = joblib.load("scaler.joblib")
+        feature_names = joblib.load("feature_names.joblib")
+        
+        # Load state columns from training data
+        state_columns = [col for col in feature_names if col.startswith("State_")]
+        logger.info(f"Loaded {len(state_columns)} state columns")
+        
+        # Load production model
+        global model
+        model = joblib.load("churn_model.joblib")
+        logger.info("Model and artifacts loaded successfully")
+    
+    except Exception as e:
+        logger.critical("Failed to initialize API: %s", str(e), exc_info=True)
+        raise RuntimeError("Service initialization failed") from e
+
+# Strict input schema matching pipeline preprocessing
+class CustomerInput(BaseModel):
+    State: str = Field(..., min_length=2, max_length=2)
+    Account_length: int = Field(..., ge=0)
+    International_plan: Literal["Yes", "No"] = Field(..., alias="International plan")
+    Voice_mail_plan: Literal["Yes", "No"] = Field(..., alias="Voice mail plan")
+    Number_vmail_messages: int = Field(..., ge=0)
+    Total_day_minutes: float = Field(..., ge=0)
+    Total_day_calls: int = Field(..., ge=0)
+    Total_day_charge: float = Field(..., ge=0)
+    Total_eve_minutes: float = Field(..., ge=0)
+    Total_eve_calls: int = Field(..., ge=0)
+    Total_eve_charge: float = Field(..., ge=0)
+    Total_night_minutes: float = Field(..., ge=0)
+    Total_night_calls: int = Field(..., ge=0)
+    Total_night_charge: float = Field(..., ge=0)
+    Total_intl_minutes: float = Field(..., ge=0)
+    Total_intl_calls: int = Field(..., ge=0)
+    Total_intl_charge: float = Field(..., ge=0)
+    Customer_service_calls: int = Field(..., ge=0)
+
+    @validator("State")
+    def validate_state(cls, v):
+        valid_states = [col.split("_")[1] for col in state_columns]
+        if v not in valid_states:
+            raise ValueError(f"Invalid state. Must be one of {valid_states}")
+        return v
+
+@app.post("/predict")
+async def predict(input_data: CustomerInput):
+    try:
+        logger.info("Processing prediction request")
+        
+        # Convert to DataFrame
+        input_dict = input_data.dict()
+        df = pd.DataFrame([input_dict])
+        
+        # Apply pipeline preprocessing
+        logger.debug("Applying data transformations")
+        
+        # 1. Ordinal Encoding
+        df[["International_plan", "Voice_mail_plan"]] = encoder.transform(
+            df[["International_plan", "Voice_mail_plan"]]
+        )
+        
+        # 2. One-hot encode State
+        state_dummies = pd.get_dummies(df["State"], prefix="State")
+        df = pd.concat([df.drop("State", axis=1), state_dummies], axis=1)
+        
+        # 3. Add missing state columns
+        for col in state_columns:
+            if col not in df.columns:
+                df[col] = 0
+                
+        # 4. Drop redundant features
+        redundant = [
+            "Total_day_charge", "Total_eve_charge",
+            "Total_night_charge", "Total_intl_charge"
+        ]
+        df = df.drop(columns=redundant, errors="ignore")
+        
+        # 5. Ensure correct feature order and columns
+        df = df.reindex(columns=feature_names, fill_value=0)
+        
+        # 6. Scale features
+        scaled_data = scaler.transform(df)
+        
+        # Validate final input shape
+        if scaled_data.shape != (1, len(feature_names)):
+            logger.error("Feature dimension mismatch")
+            raise HTTPException(400, "Invalid input dimensions")
+        
+        # Make prediction
+        logger.debug("Making prediction")
+        prediction = model.predict(scaled_data)
+        probability = model.predict_proba(scaled_data)[0][1]
+        
+        return {
+            "prediction": "Churn" if prediction[0] else "No Churn",
+            "probability": round(float(probability), 4),
+            "model_version": "Production"
+        }
+        
+    except ValueError as e:
+        logger.warning("Invalid input: %s", str(e))
+        raise HTTPException(422, detail=str(e))
+    except Exception as e:
+        logger.error("Prediction failed: %s", str(e), exc_info=True)
+        raise HTTPException(500, "Internal server error")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)

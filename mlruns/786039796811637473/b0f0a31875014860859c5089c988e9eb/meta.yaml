@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/b0f0a31875014860859c5089c988e9eb/artifacts
+end_time: 1741119145809
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: b0f0a31875014860859c5089c988e9eb
+run_name: illustrious-croc-819
+run_uuid: b0f0a31875014860859c5089c988e9eb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741119129366
+status: 3
+tags: []
+user_id: feriel

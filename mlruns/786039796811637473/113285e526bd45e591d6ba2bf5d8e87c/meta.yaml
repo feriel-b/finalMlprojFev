@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/113285e526bd45e591d6ba2bf5d8e87c/artifacts
+end_time: 1741135021118
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 113285e526bd45e591d6ba2bf5d8e87c
+run_name: secretive-steed-944
+run_uuid: 113285e526bd45e591d6ba2bf5d8e87c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741135009944
+status: 3
+tags: []
+user_id: feriel

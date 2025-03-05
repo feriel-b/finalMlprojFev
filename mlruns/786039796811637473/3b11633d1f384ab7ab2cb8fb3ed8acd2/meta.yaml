@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/3b11633d1f384ab7ab2cb8fb3ed8acd2/artifacts
+end_time: 1741180458309
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 3b11633d1f384ab7ab2cb8fb3ed8acd2
+run_name: colorful-moth-582
+run_uuid: 3b11633d1f384ab7ab2cb8fb3ed8acd2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741180449559
+status: 3
+tags: []
+user_id: feriel

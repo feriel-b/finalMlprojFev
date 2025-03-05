@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/7605d3e23cc8483b9cde7dc837677cef/artifacts
+end_time: 1741169386868
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 7605d3e23cc8483b9cde7dc837677cef
+run_name: invincible-squid-947
+run_uuid: 7605d3e23cc8483b9cde7dc837677cef
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169378411
+status: 3
+tags: []
+user_id: feriel

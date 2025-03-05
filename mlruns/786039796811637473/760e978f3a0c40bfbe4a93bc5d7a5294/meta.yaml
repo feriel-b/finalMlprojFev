@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/760e978f3a0c40bfbe4a93bc5d7a5294/artifacts
+end_time: 1741119174380
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 760e978f3a0c40bfbe4a93bc5d7a5294
+run_name: likeable-koi-330
+run_uuid: 760e978f3a0c40bfbe4a93bc5d7a5294
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741119160002
+status: 3
+tags: []
+user_id: feriel

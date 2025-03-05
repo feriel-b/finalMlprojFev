@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/4ca47e49a0b6404e8ea83a948782b0e8/artifacts
+end_time: 1741184865077
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 4ca47e49a0b6404e8ea83a948782b0e8
+run_name: bedecked-loon-546
+run_uuid: 4ca47e49a0b6404e8ea83a948782b0e8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741184856059
+status: 3
+tags: []
+user_id: feriel

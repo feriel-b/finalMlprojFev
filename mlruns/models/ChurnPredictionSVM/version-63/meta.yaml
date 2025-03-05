@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1741169580523
+current_stage: Production
+description: ''
+last_updated_timestamp: 1741169585599
+name: ChurnPredictionSVM
+run_id: 0c17d0c2fb424a97a5c251fdda66a5b1
+run_link: ''
+source: mlflow-artifacts:/786039796811637473/0c17d0c2fb424a97a5c251fdda66a5b1/artifacts/svm_model
+status: READY
+status_message: null
+storage_location: mlflow-artifacts:/786039796811637473/0c17d0c2fb424a97a5c251fdda66a5b1/artifacts/svm_model
+user_id: null
+version: 63

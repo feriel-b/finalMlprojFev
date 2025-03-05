@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/6aa5496432f14aae95ad6cc541b32e0c/artifacts
+end_time: 1741135029009
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 6aa5496432f14aae95ad6cc541b32e0c
+run_name: sassy-goat-463
+run_uuid: 6aa5496432f14aae95ad6cc541b32e0c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741135021130
+status: 3
+tags: []
+user_id: feriel

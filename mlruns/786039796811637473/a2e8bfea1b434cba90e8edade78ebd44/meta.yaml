@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/a2e8bfea1b434cba90e8edade78ebd44/artifacts
+end_time: 1741169423700
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: a2e8bfea1b434cba90e8edade78ebd44
+run_name: luminous-roo-376
+run_uuid: a2e8bfea1b434cba90e8edade78ebd44
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169415033
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/0f7edf0463f843c39a4a8e56d4c335a0/artifacts
+end_time: 1741136926650
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 0f7edf0463f843c39a4a8e56d4c335a0
+run_name: capable-shrike-812
+run_uuid: 0f7edf0463f843c39a4a8e56d4c335a0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741136916426
+status: 3
+tags: []
+user_id: feriel

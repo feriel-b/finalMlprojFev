@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/e05831abedb3443ca8ebae6f421088e0/artifacts
+end_time: 1741119159967
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: e05831abedb3443ca8ebae6f421088e0
+run_name: nosy-fawn-553
+run_uuid: e05831abedb3443ca8ebae6f421088e0
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741119145834
+status: 3
+tags: []
+user_id: feriel

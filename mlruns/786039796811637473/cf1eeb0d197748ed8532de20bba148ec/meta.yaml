@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/cf1eeb0d197748ed8532de20bba148ec/artifacts
+end_time: 1741116033903
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: cf1eeb0d197748ed8532de20bba148ec
+run_name: upbeat-eel-577
+run_uuid: cf1eeb0d197748ed8532de20bba148ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741116022696
+status: 3
+tags: []
+user_id: feriel

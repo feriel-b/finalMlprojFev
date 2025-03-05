@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/2b13aa6b32c1422d8e872faaf63c2548/artifacts
+end_time: 1741184829426
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 2b13aa6b32c1422d8e872faaf63c2548
+run_name: persistent-carp-707
+run_uuid: 2b13aa6b32c1422d8e872faaf63c2548
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741184819193
+status: 3
+tags: []
+user_id: feriel

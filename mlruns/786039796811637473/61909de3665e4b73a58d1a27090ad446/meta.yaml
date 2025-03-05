@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/61909de3665e4b73a58d1a27090ad446/artifacts
+end_time: 1741118639951
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 61909de3665e4b73a58d1a27090ad446
+run_name: learned-sponge-814
+run_uuid: 61909de3665e4b73a58d1a27090ad446
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741118625208
+status: 3
+tags: []
+user_id: feriel

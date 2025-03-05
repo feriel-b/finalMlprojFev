@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/951d901964a049ad9e3e574d2eafd155/artifacts
+end_time: 1741169031984
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 951d901964a049ad9e3e574d2eafd155
+run_name: funny-shad-153
+run_uuid: 951d901964a049ad9e3e574d2eafd155
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169023237
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/38a3c5e727cb42f5ab554aeac3a7ff02/artifacts
+end_time: 1741136916414
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 38a3c5e727cb42f5ab554aeac3a7ff02
+run_name: charming-dove-946
+run_uuid: 38a3c5e727cb42f5ab554aeac3a7ff02
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741136907820
+status: 3
+tags: []
+user_id: feriel

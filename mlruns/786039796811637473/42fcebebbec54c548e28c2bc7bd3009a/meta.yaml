@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/42fcebebbec54c548e28c2bc7bd3009a/artifacts
+end_time: 1741103730066
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 42fcebebbec54c548e28c2bc7bd3009a
+run_name: debonair-panda-917
+run_uuid: 42fcebebbec54c548e28c2bc7bd3009a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741103719134
+status: 3
+tags: []
+user_id: feriel

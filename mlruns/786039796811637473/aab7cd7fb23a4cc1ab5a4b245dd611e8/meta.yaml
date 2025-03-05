@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/aab7cd7fb23a4cc1ab5a4b245dd611e8/artifacts
+end_time: 1741180466833
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: aab7cd7fb23a4cc1ab5a4b245dd611e8
+run_name: honorable-bee-678
+run_uuid: aab7cd7fb23a4cc1ab5a4b245dd611e8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741180458322
+status: 3
+tags: []
+user_id: feriel

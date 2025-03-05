@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/1e3c652c80af47328ee0bbc8ff03bb20/artifacts
+end_time: 1741169850516
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 1e3c652c80af47328ee0bbc8ff03bb20
+run_name: hilarious-yak-955
+run_uuid: 1e3c652c80af47328ee0bbc8ff03bb20
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169839204
+status: 3
+tags: []
+user_id: feriel

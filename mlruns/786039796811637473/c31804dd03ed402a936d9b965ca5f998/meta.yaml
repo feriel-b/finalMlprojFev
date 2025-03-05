@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/c31804dd03ed402a936d9b965ca5f998/artifacts
+end_time: 1741184873754
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: c31804dd03ed402a936d9b965ca5f998
+run_name: casual-finch-406
+run_uuid: c31804dd03ed402a936d9b965ca5f998
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741184865089
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/e318c631c8b3437b80968b8af7e7c9c3/artifacts
+end_time: 1741169594088
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: e318c631c8b3437b80968b8af7e7c9c3
+run_name: bedecked-finch-902
+run_uuid: e318c631c8b3437b80968b8af7e7c9c3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169585630
+status: 3
+tags: []
+user_id: feriel

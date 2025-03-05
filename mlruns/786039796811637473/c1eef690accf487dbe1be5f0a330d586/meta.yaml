@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/c1eef690accf487dbe1be5f0a330d586/artifacts
+end_time: 1741103739520
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: c1eef690accf487dbe1be5f0a330d586
+run_name: defiant-dove-519
+run_uuid: c1eef690accf487dbe1be5f0a330d586
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741103730074
+status: 3
+tags: []
+user_id: feriel

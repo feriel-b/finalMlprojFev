@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/1ff3ff82a8e14400b568497623ae43ec/artifacts
+end_time: 1741103708477
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 1ff3ff82a8e14400b568497623ae43ec
+run_name: gregarious-frog-863
+run_uuid: 1ff3ff82a8e14400b568497623ae43ec
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741103695726
+status: 3
+tags: []
+user_id: feriel

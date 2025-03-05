@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/4f2bc4f7829a4bf5bcb024902cef4c97/artifacts
+end_time: 1741169043354
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 4f2bc4f7829a4bf5bcb024902cef4c97
+run_name: nosy-cub-630
+run_uuid: 4f2bc4f7829a4bf5bcb024902cef4c97
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169031998
+status: 3
+tags: []
+user_id: feriel

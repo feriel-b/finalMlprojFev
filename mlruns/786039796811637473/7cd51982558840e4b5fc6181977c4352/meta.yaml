@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/7cd51982558840e4b5fc6181977c4352/artifacts
+end_time: 1741169433095
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 7cd51982558840e4b5fc6181977c4352
+run_name: victorious-koi-392
+run_uuid: 7cd51982558840e4b5fc6181977c4352
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169432764
+status: 3
+tags: []
+user_id: feriel

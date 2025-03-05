@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/43ea5ccda1a34421b45d0bcab31a36e9/artifacts
+end_time: 1741118657393
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 43ea5ccda1a34421b45d0bcab31a36e9
+run_name: nimble-cat-557
+run_uuid: 43ea5ccda1a34421b45d0bcab31a36e9
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741118639982
+status: 3
+tags: []
+user_id: feriel

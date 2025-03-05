@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/63f5a56a9702418181ee264dbde71bdd/artifacts
+end_time: 1741169839192
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 63f5a56a9702418181ee264dbde71bdd
+run_name: bald-bass-762
+run_uuid: 63f5a56a9702418181ee264dbde71bdd
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169830691
+status: 3
+tags: []
+user_id: feriel

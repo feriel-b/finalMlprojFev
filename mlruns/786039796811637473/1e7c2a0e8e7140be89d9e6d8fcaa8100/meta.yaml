@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/1e7c2a0e8e7140be89d9e6d8fcaa8100/artifacts
+end_time: 1741135045229
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 1e7c2a0e8e7140be89d9e6d8fcaa8100
+run_name: receptive-whale-771
+run_uuid: 1e7c2a0e8e7140be89d9e6d8fcaa8100
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741135037041
+status: 3
+tags: []
+user_id: feriel

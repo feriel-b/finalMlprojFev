@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/e640103611194333a1ec43055890d2b1/artifacts
+end_time: 1741184904671
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: e640103611194333a1ec43055890d2b1
+run_name: bald-cub-953
+run_uuid: e640103611194333a1ec43055890d2b1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741184904335
+status: 3
+tags: []
+user_id: feriel

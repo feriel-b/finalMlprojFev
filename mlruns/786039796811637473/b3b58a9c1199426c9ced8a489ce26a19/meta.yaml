@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/b3b58a9c1199426c9ced8a489ce26a19/artifacts
+end_time: 1741169876024
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: b3b58a9c1199426c9ced8a489ce26a19
+run_name: burly-chimp-550
+run_uuid: b3b58a9c1199426c9ced8a489ce26a19
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169867565
+status: 3
+tags: []
+user_id: feriel

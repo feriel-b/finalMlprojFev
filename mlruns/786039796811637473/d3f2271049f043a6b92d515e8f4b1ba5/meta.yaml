@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/d3f2271049f043a6b92d515e8f4b1ba5/artifacts
+end_time: 1741135001629
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: d3f2271049f043a6b92d515e8f4b1ba5
+run_name: persistent-gull-720
+run_uuid: d3f2271049f043a6b92d515e8f4b1ba5
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741134991798
+status: 3
+tags: []
+user_id: feriel

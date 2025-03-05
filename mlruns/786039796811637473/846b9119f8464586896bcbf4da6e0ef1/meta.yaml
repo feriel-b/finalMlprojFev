@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/846b9119f8464586896bcbf4da6e0ef1/artifacts
+end_time: 1741103684823
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 846b9119f8464586896bcbf4da6e0ef1
+run_name: learned-stoat-507
+run_uuid: 846b9119f8464586896bcbf4da6e0ef1
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741103672909
+status: 3
+tags: []
+user_id: feriel

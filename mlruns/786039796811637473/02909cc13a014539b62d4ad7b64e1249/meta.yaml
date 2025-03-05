@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/02909cc13a014539b62d4ad7b64e1249/artifacts
+end_time: 1741169867555
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 02909cc13a014539b62d4ad7b64e1249
+run_name: dazzling-sloth-857
+run_uuid: 02909cc13a014539b62d4ad7b64e1249
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169859340
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/105391bb0078475e80090ddf415c66e7/artifacts
+end_time: 1741119193435
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 105391bb0078475e80090ddf415c66e7
+run_name: zealous-shrimp-581
+run_uuid: 105391bb0078475e80090ddf415c66e7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741119193071
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/981394b9ce9048608bcaab913d807878/artifacts
+end_time: 1741168994727
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 981394b9ce9048608bcaab913d807878
+run_name: painted-bear-818
+run_uuid: 981394b9ce9048608bcaab913d807878
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741168985004
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/42aa3154f6c940f6b9647e2c5203b9d2/artifacts
+end_time: 1741135037029
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 42aa3154f6c940f6b9647e2c5203b9d2
+run_name: dazzling-calf-697
+run_uuid: 42aa3154f6c940f6b9647e2c5203b9d2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741135029023
+status: 3
+tags: []
+user_id: feriel

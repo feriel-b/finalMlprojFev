@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/4db84feb979b4323b1a591b3669b8185/artifacts
+end_time: 1741118735863
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 4db84feb979b4323b1a591b3669b8185
+run_name: adventurous-grub-352
+run_uuid: 4db84feb979b4323b1a591b3669b8185
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741118735541
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/6d805c8877e34e75bd7501d6d86e8fbc/artifacts
+end_time: 1741121049419
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 6d805c8877e34e75bd7501d6d86e8fbc
+run_name: rogue-deer-572
+run_uuid: 6d805c8877e34e75bd7501d6d86e8fbc
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741121038956
+status: 3
+tags: []
+user_id: feriel

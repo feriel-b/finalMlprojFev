@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/c1083f65fbc74b5fb7266a0815c88b0a/artifacts
+end_time: 1741169014584
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: c1083f65fbc74b5fb7266a0815c88b0a
+run_name: abundant-goat-870
+run_uuid: c1083f65fbc74b5fb7266a0815c88b0a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169005728
+status: 3
+tags: []
+user_id: feriel

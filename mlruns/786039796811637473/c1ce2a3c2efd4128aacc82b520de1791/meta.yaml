@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/c1ce2a3c2efd4128aacc82b520de1791/artifacts
+end_time: 1741169023223
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: c1ce2a3c2efd4128aacc82b520de1791
+run_name: luxuriant-shad-242
+run_uuid: c1ce2a3c2efd4128aacc82b520de1791
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169014599
+status: 3
+tags: []
+user_id: feriel

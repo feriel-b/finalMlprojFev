@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/bbad32d2dee34e91859fc71890e608e4/artifacts
+end_time: 1741116009040
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: bbad32d2dee34e91859fc71890e608e4
+run_name: popular-pig-762
+run_uuid: bbad32d2dee34e91859fc71890e608e4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741115997809
+status: 3
+tags: []
+user_id: feriel

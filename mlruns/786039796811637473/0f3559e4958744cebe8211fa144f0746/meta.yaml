@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/0f3559e4958744cebe8211fa144f0746/artifacts
+end_time: 1741169640221
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 0f3559e4958744cebe8211fa144f0746
+run_name: kindly-pig-851
+run_uuid: 0f3559e4958744cebe8211fa144f0746
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741169639784
+status: 3
+tags: []
+user_id: feriel
