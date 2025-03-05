@@ -1,3 +1,20 @@
+"""
+Main pipeline for Customer Churn Prediction.
+
+This module orchestrates key stages of the churn prediction pipeline:
+1. Data Preparation (via the --prepare flag)
+2. Model Training (via the --train flag), including a hyperparameter grid search, model logging, and promotion using MLflow.
+3. Model Evaluation (via the --evaluate flag), with the generation of a confusion matrix and ROC curve.
+
+Dependencies:
+    - pipeline module: Provides functions such as prepare_data, train_model, evaluate_model, save_model, load_model, 
+      plot_confusion_matrix, and plot_roc_curve.
+    - mlflow: For tracking model experiments and handling model promotion.
+    - argparse: For command-line interface management.
+
+Usage:
+    python main.py [--prepare] [--train] [--evaluate]
+"""
 import argparse
 from pipeline import (
     prepare_data,
@@ -12,6 +29,7 @@ from mlflow.tracking import MlflowClient
 
 
 def main(args):
+    
 
     client = MlflowClient()
 
@@ -55,6 +73,7 @@ def main(args):
                     if test_acc > best_accuracy:
                         best_accuracy = test_acc
                         best_model = model
+                        save_model(model, "churn_model.joblib")  
                         print(f"🔥 Nouveau meilleur modèle! Accuracy: {test_acc:.2f}")
 
         # Sauvegarder le meilleur modèle comme modèle par défaut

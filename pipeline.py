@@ -5,12 +5,15 @@ import seaborn as sns
 import joblib
 from sklearn.preprocessing import OrdinalEncoder, MinMaxScaler
 from sklearn.svm import SVC
+from sklearn.impute import SimpleImputer
 from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
 import warnings
+from sklearn.base import BaseEstimator, TransformerMixin
 import mlflow
 import mlflow.sklearn
 from mlflow.tracking import MlflowClient
 import time
+import os 
 
 # warnings.filterwarnings("ignore")
 
@@ -19,46 +22,139 @@ mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("Churn_Pred")
 
 
+class FeaturePreprocessor(BaseEstimator, TransformerMixin):
+    """Unified preprocessing pipeline for training and inference"""
+    def __init__(self):
+        self.redundant_features = [
+            "Total day charge", "Total eve charge",
+            "Total night charge", "Total intl charge"
+        ]
+        self.categorical_features = ["International plan", "Voice mail plan"]
+        self.state_column = "State"
+        self.target = "Churn"
+        
+    def fit(self, X, y=None):
+        # Encoders
+        self.encoder = OrdinalEncoder()
+        self.encoder.fit(X[self.categorical_features])
+        
+        # Scaler (fitted later in prepare_data)
+        self.scaler = MinMaxScaler()
+        
+        # Save feature names structure
+        X_processed = self.transform(X, training=True)
+        self.feature_names = X_processed.columns.tolist()
+        return self
+
+    def transform(self, X, training=False):
+        # Copy and clean
+        df = X.copy()
+        
+        # Fill missing values
+        num_cols = df.select_dtypes(include=["number"]).columns
+        df[num_cols] = df[num_cols].fillna(df[num_cols].mean())
+        
+        # Encode categoricals
+        df[self.categorical_features] = self.encoder.transform(
+            df[self.categorical_features]
+        )
+        
+        # One-hot encode state
+        df = pd.get_dummies(df, columns=[self.state_column], prefix="State")
+        
+        # Drop redundant features
+        df = df.drop(columns=self.redundant_features, errors="ignore")
+        
+        # Training-specific operations
+        if training:
+            # Fit scaler on cleaned data
+            self.scaler.fit(df)
+
+             # Assign feature names from the current dataframe
+            self.feature_names = df.columns.tolist()
+    
+            
+            # Save expected columns
+            joblib.dump(self.feature_names, "feature_names.joblib")
+            joblib.dump(self.redundant_features, "redundant_features.joblib")
+            joblib.dump(self.encoder, "encoder.joblib")
+            joblib.dump(self.scaler, "scaler.joblib")
+            
+        # Scale and return
+        scaled = self.scaler.transform(df)
+        return pd.DataFrame(scaled, columns=df.columns)
+    
+  
+
 def prepare_data(train_path="churn_80.csv", test_path="churn_20.csv"):
-    """Loads, cleans, and prepares data for training and evaluation using original ordinal encoding for categorical features."""
+    """Standardized data preparation"""
+    # Load data
+    train = pd.read_csv(train_path)
+    test = pd.read_csv(test_path)
+    
+    # Initialize preprocessor
+    preprocessor = FeaturePreprocessor()
+    
+    # Fit and transform
+    X_train = preprocessor.fit_transform(train.drop(columns=["Churn"]))
+    X_test = preprocessor.transform(test.drop(columns=["Churn"]))
+    
+    # Get targets
+    y_train = train["Churn"].values
+    y_test = test["Churn"].values
+    
+    return X_train, y_train, X_test, y_test
+
+"""
+def prepare_data(train_path="churn_80.csv", test_path="churn_20.csv"):
+   #Loads, cleans, and prepares data for training and evaluation.
+    print(f"Loading data from {train_path} and {test_path}")
+
+    # Check if files exist
+    if not os.path.exists(train_path) or not os.path.exists(test_path):
+        raise FileNotFoundError(
+            f"Data files not found. Please ensure {train_path} and {test_path} exist."
+        )
+
     df_80 = pd.read_csv(train_path)
     df_20 = pd.read_csv(test_path)
 
-    # Fill missing values with mean for numeric columns
+    # Fill missing values
     for col in df_80.select_dtypes(include=["float64", "int64"]).columns:
-        df_80[col].fillna(df_80[col].mean(), inplace=True)
-        df_20[col].fillna(df_20[col].mean(), inplace=True)
+        df_80[col] = df_80[col].fillna(df_80[col].mean())
+        df_20[col] = df_20[col].fillna(df_20[col].mean())
 
-    # Identify categorical features (including 'State')
+    # Encode categorical features
     categorical_features = ["International plan", "Voice mail plan"]
-
-    # Initialize the OrdinalEncoder and apply it to both datasets
     encoder = OrdinalEncoder()
     df_80[categorical_features] = encoder.fit_transform(df_80[categorical_features])
     df_20[categorical_features] = encoder.transform(df_20[categorical_features])
 
-    # One-hot encode the "State" feature (to generate multiple columns, e.g., state_0 to state_6).
-    df_80 = pd.get_dummies(df_80, columns=["State"], prefix="state")
-    df_20 = pd.get_dummies(df_20, columns=["State"], prefix="state")
+    # One-hot encode "State"
+    df_80 = pd.get_dummies(df_80, columns=["State"], prefix="State")
+    df_20 = pd.get_dummies(df_20, columns=["State"], prefix="State")
+    df_20 = df_20.reindex(columns=df_80.columns, fill_value=0)
 
-    # Convert the Churn feature to int (if necessary)
-    df_80["Churn"] = df_80["Churn"].astype(int)
-    df_20["Churn"] = df_20["Churn"].astype(int)
-
-    # Normalize data using MinMaxScaler
-    scaler = MinMaxScaler()
-    df_80_scaled = pd.DataFrame(scaler.fit_transform(df_80), columns=df_80.columns)
-    df_20_scaled = pd.DataFrame(scaler.transform(df_20), columns=df_20.columns)
-
-    # Drop redundant features if needed
-    drop_cols = [
+    # Drop redundant features *before* scaling
+    redundant_features = [
         "Total day charge",
         "Total eve charge",
         "Total night charge",
         "Total intl charge",
     ]
-    df_80_scaled.drop(columns=drop_cols, inplace=True, errors="ignore")
-    df_20_scaled.drop(columns=drop_cols, inplace=True, errors="ignore")
+    df_80.drop(columns=redundant_features, inplace=True, errors="ignore")
+    df_20.drop(columns=redundant_features, inplace=True, errors="ignore")
+
+    # Normalize data
+    scaler = MinMaxScaler()
+    df_80_scaled = pd.DataFrame(scaler.fit_transform(df_80), columns=df_80.columns)
+    df_20_scaled = pd.DataFrame(scaler.transform(df_20), columns=df_20.columns)
+
+    # Save preprocessors
+    joblib.dump(encoder, "encoder.joblib")
+    joblib.dump(scaler, "scaler.joblib")
+    feature_names = df_80_scaled.drop(columns=["Churn"]).columns.tolist()
+    joblib.dump(feature_names, "feature_names.joblib")
 
     # Separate features and labels
     X_train = df_80_scaled.drop(columns=["Churn"])
@@ -66,15 +162,13 @@ def prepare_data(train_path="churn_80.csv", test_path="churn_20.csv"):
     X_test = df_20_scaled.drop(columns=["Churn"])
     y_test = df_20_scaled["Churn"]
 
+    print(f"Data prepared: X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
     pd.set_option("display.max_columns", None)
-
-    print(" Data preparation !")
     print(X_train.head())
-    # feature names
-    feature_names = X_train.columns.tolist()
-    joblib.dump(feature_names, "feature_names.joblib")
-
     return X_train, y_train, X_test, y_test
+
+    """
+
 
 
 def train_model(X_train, y_train, X_test, y_test, C=1.0, kernel="rbf", gamma="scale"):
@@ -127,8 +221,8 @@ def train_model(X_train, y_train, X_test, y_test, C=1.0, kernel="rbf", gamma="sc
             print(f"✅ Model version {registration_result.version} promoted to Production")
         except Exception as e:
             print("Model promotion skipped:", e)
-
     return model, test_acc
+
 
 
 def save_model(model, filename="churn_model.joblib"):
@@ -160,7 +254,7 @@ def evaluate_model(model, X_test, y_test):
     acc = accuracy_score(y_test, y_pred)
     print(f"✅ Accuracy: {acc:.2f}")
     print("\n🔍 Classification Report:")
-    print(classification_report(y_test, y_pred, target_names=["No Churn", "Churn"]))
+    print(classification_report(y_test, y_pred, target_names=["No Churn", "Churn"], zero_division=0))
     return acc, y_pred
 
 
@@ -227,11 +321,11 @@ def plot_roc_curve(y_true, y_score, filename="roc_curve.png"):
 
 
 # """Retrains the SVM model with new hyperparameters and saves it as the default model."""
-"""
+
 def retrain_model(C=1.0, kernel='rbf', gamma='scale'):
     X_train, y_train, _, _ = prepare_data()
     model = SVC(C=C, kernel=kernel, gamma=gamma, random_state=42)
     model.fit(X_train, y_train)
     joblib.dump(model, "churn_model.joblib")
     print("✅ Model retrained and saved!")
-"""
+

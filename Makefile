@@ -5,13 +5,15 @@ REQUIREMENTS := requirements.txt
 MAIN_SCRIPT := main.py
 TESTS_DIR := tests/
 VENV := venv
+SHELL := /bin/bash
 
 # Define targets
-.PHONY: all install check-code prepare-data train-model run-tests watch
+.PHONY: all install check-code prepare train evaluate watch
 
 # Default target
-all: install check-code prepare-data train-model run-tests
+all: install check-code prepare train evaluate
 
+ci: check-code prepare train 
 # Create virtual environment and install dependencies
 install:
 	@echo "Creating virtual environment and installing dependencies..."
@@ -25,9 +27,14 @@ check-code:
 	@echo "Running code checks..."
 	@$(VENV)/bin/black $(PROJECT_DIR) --check || true
 	@$(VENV)/bin/pylint $(PROJECT_DIR) || true
-#	@$(VENV)/bin/flake8 $(PROJECT_DIR)
-#	@$(VENV)/bin/mypy $(PROJECT_DIR) || true
 	@echo "Code checks completed."
+
+# Set up environment
+env:
+	@echo "Set up environment..."
+	@$(VENV)/bin/python -c "import os; print('Virtual env activated')" 
+	@$(VENV)/bin/mlflow ui --host 0.0.0.0 --port 5000 &
+	@echo "Environment set up."
 
 # Prepare data
 prepare:
@@ -47,15 +54,14 @@ evaluate:
 	@$(VENV)/bin/python $(MAIN_SCRIPT) --evaluate
 	@echo "Model evaluated."
 
-
+serve:
+	@echo "Serving the model with FastAPI..."
+	@$(VENV)/bin/uvicorn app:app --reload --host 0.0.0.0 --port 8001
 
 # Watch for changes and trigger pipeline
 watch:
 	@echo "Watching for changes in the project directory..."
-	@while true; do \
-		inotifywait -r -e modify -e create -e delete $(PROJECT_DIR); \
-		make all; \
-	done
+	@find $(PROJECT_DIR) -name "*.py" | entr make ci
 
 
 
@@ -67,3 +73,5 @@ clean:
 	@rm -rf $(PROJECT_DIR)/__pycache__
 	@find $(PROJECT_DIR) -type f -name "*.pyc" -delete
 	@echo "Cleanup completed."
+
+	
