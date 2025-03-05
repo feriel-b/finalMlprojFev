@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/c0195649dd7446b4807da6697f09cfa3/artifacts
+end_time: 1741185924384
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: c0195649dd7446b4807da6697f09cfa3
+run_name: gregarious-hawk-135
+run_uuid: c0195649dd7446b4807da6697f09cfa3
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741185916560
+status: 3
+tags: []
+user_id: feriel

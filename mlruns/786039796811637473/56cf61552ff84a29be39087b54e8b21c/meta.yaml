@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/56cf61552ff84a29be39087b54e8b21c/artifacts
+end_time: 1741186074918
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 56cf61552ff84a29be39087b54e8b21c
+run_name: tasteful-shrew-998
+run_uuid: 56cf61552ff84a29be39087b54e8b21c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741186074777
+status: 3
+tags: []
+user_id: feriel

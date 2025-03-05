@@ -180,13 +180,11 @@ async def predict(input_data: PredictInput):
     # Convert to dict preserving aliases
     raw_data = input_data.model_dump(by_alias=True)
     logger.info(f"Received data: {raw_data}")
-    # Process data through pipeline-identical steps
         
     try:
-        
+        # Process data through pipeline-identical steps
         processed_data = strict_preprocessing(raw_data)
-
-        
+  
         # Make prediction
         prediction = model.predict(processed_data)
         probability = model.predict_proba(processed_data)[:, 1]

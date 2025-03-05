@@ -324,7 +324,7 @@ def plot_roc_curve(y_true, y_score, filename="roc_curve.png"):
 
 def retrain_model(C=1.0, kernel='rbf', gamma='scale'):
     X_train, y_train, _, _ = prepare_data()
-    model = SVC(C=C, kernel=kernel, gamma=gamma, random_state=42)
+    model = SVC(C=C, kernel=kernel, gamma=gamma, random_state=42, probability=True)
     model.fit(X_train, y_train)
     joblib.dump(model, "churn_model.joblib")
     print("✅ Model retrained and saved!")

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/a6a93e9210d04154beedd361b0998942/artifacts
+end_time: 1741185932195
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: a6a93e9210d04154beedd361b0998942
+run_name: enchanting-croc-202
+run_uuid: a6a93e9210d04154beedd361b0998942
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741185924394
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/d1e0bb1cf3a947138e6788c037423ad4/artifacts
+end_time: 1741186944684
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: d1e0bb1cf3a947138e6788c037423ad4
+run_name: shivering-sheep-455
+run_uuid: d1e0bb1cf3a947138e6788c037423ad4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741186936877
+status: 3
+tags: []
+user_id: feriel

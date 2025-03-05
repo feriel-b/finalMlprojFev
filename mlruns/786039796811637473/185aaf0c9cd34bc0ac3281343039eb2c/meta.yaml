@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/185aaf0c9cd34bc0ac3281343039eb2c/artifacts
+end_time: 1741185942090
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 185aaf0c9cd34bc0ac3281343039eb2c
+run_name: ambitious-shoat-955
+run_uuid: 185aaf0c9cd34bc0ac3281343039eb2c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741185932212
+status: 3
+tags: []
+user_id: feriel

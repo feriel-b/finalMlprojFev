@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/1d65ed5223584e0ca5d1fd5f1fa0bb3e/artifacts
+end_time: 1741185959185
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 1d65ed5223584e0ca5d1fd5f1fa0bb3e
+run_name: sassy-shrike-740
+run_uuid: 1d65ed5223584e0ca5d1fd5f1fa0bb3e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741185950560
+status: 3
+tags: []
+user_id: feriel

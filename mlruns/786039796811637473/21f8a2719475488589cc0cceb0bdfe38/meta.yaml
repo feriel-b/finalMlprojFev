@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/21f8a2719475488589cc0cceb0bdfe38/artifacts
+end_time: 1741186967306
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 21f8a2719475488589cc0cceb0bdfe38
+run_name: overjoyed-cod-547
+run_uuid: 21f8a2719475488589cc0cceb0bdfe38
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741186959763
+status: 3
+tags: []
+user_id: feriel

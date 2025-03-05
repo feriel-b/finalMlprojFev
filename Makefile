@@ -63,6 +63,10 @@ watch:
 	@echo "Watching for changes in the project directory..."
 	@find $(PROJECT_DIR) -name "*.py" | entr make ci
 
+servedebug:
+	@echo "Serving the model with FastAPI in debug mode..."
+	@$(VENV)/bin/uvicorn app:app --reload --host 0.0.0.0 --port 8000 --log-level debug
+
 
 
 

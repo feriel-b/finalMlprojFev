@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/175e5415e76349dbaa839ce3be20326f/artifacts
+end_time: 1741186936868
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 175e5415e76349dbaa839ce3be20326f
+run_name: luminous-hare-702
+run_uuid: 175e5415e76349dbaa839ce3be20326f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741186929372
+status: 3
+tags: []
+user_id: feriel
