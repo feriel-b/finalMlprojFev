@@ -1,0 +1,35 @@
+# Dockerfile.fastapi
+FROM python:3.10-slim
+
+# Set working directory
+WORKDIR /app
+
+# Install system dependencies (if needed)
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements file
+COPY requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy project files
+COPY app.py pipeline.py main.py ./
+COPY *.joblib ./
+COPY *.csv ./
+
+COPY /testApp ./testApp
+
+# Set environment variables
+ENV PYTHONDONTWRITEBYTECODE=1 \
+    PYTHONUNBUFFERED=1 
+
+# Expose mlflow port
+EXPOSE 5000
+
+# Expose FastAPI port
+EXPOSE 8000
+
+# Run FastAPI with Uvicorn
+CMD bash -c "mlflow server --host 0.0.0.0 --port 5000 --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns & sleep 5 && uvicorn app:app --host 0.0.0.0 --port 8000 --log-level debug"

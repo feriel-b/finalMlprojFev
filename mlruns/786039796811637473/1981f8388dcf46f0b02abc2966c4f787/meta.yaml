@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/1981f8388dcf46f0b02abc2966c4f787/artifacts
+end_time: 1741249194199
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 1981f8388dcf46f0b02abc2966c4f787
+run_name: amazing-lamb-778
+run_uuid: 1981f8388dcf46f0b02abc2966c4f787
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741249186729
+status: 3
+tags: []
+user_id: feriel

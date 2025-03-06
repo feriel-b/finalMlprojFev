@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/3c21a2b3b8bd4bb3a86bf9689221edfe/artifacts
+end_time: 1741209414641
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 3c21a2b3b8bd4bb3a86bf9689221edfe
+run_name: crawling-gnat-249
+run_uuid: 3c21a2b3b8bd4bb3a86bf9689221edfe
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741209414412
+status: 3
+tags: []
+user_id: feriel

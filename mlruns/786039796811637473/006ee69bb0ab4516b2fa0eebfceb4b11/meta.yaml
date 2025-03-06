@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/006ee69bb0ab4516b2fa0eebfceb4b11/artifacts
+end_time: 1741209114116
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 006ee69bb0ab4516b2fa0eebfceb4b11
+run_name: illustrious-owl-617
+run_uuid: 006ee69bb0ab4516b2fa0eebfceb4b11
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741209104809
+status: 3
+tags: []
+user_id: feriel

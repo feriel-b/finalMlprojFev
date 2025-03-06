@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/389d5ef46f7c4382b13cfe0cc1f2dd0e/artifacts
+end_time: 1741249203488
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 389d5ef46f7c4382b13cfe0cc1f2dd0e
+run_name: melodic-ant-885
+run_uuid: 389d5ef46f7c4382b13cfe0cc1f2dd0e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741249194209
+status: 3
+tags: []
+user_id: feriel

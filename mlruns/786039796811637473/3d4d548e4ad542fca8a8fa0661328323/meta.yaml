@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/3d4d548e4ad542fca8a8fa0661328323/artifacts
+end_time: 1741209084620
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 3d4d548e4ad542fca8a8fa0661328323
+run_name: exultant-stag-901
+run_uuid: 3d4d548e4ad542fca8a8fa0661328323
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741209075184
+status: 3
+tags: []
+user_id: feriel

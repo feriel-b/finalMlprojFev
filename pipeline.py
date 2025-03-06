@@ -173,7 +173,7 @@ def prepare_data(train_path="churn_80.csv", test_path="churn_20.csv"):
 
 def train_model(X_train, y_train, X_test, y_test, C=1.0, kernel="rbf", gamma="scale"):
     """Trains an SVM model and logs with MLflow, returns (model, test_accuracy)."""
-
+   
     with mlflow.start_run() as run:  # Start a new MLflow run
         model = SVC(C=C, kernel=kernel, gamma=gamma, random_state=42, probability=True)
         model.fit(X_train, y_train)
@@ -239,17 +239,12 @@ def load_model(model_path="churn_model.joblib"):
         raise ValueError(f"Erreur de chargement : {str(e)}")
 
 
-def retrain_model(C=1.0, kernel="rbf", gamma="scale"):
-    """Retrains the SVM model with new hyperparameters."""
-    X_train, y_train, _, _ = prepare_data()
-    model = SVC(C=C, kernel=kernel, gamma=gamma, random_state=42)
-    model.fit(X_train, y_train)
-    joblib.dump(model, "churn_model.joblib")
-    print("✅ Model retrained and saved!")
 
 
 def evaluate_model(model, X_test, y_test):
     """Evaluates the model on test data and prints metrics."""
+   
+
     y_pred = model.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
     print(f"✅ Accuracy: {acc:.2f}")

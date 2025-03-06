@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/0023704149204844adc68a6419d21d59/artifacts
+end_time: 1741208778183
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 0023704149204844adc68a6419d21d59
+run_name: calm-ray-774
+run_uuid: 0023704149204844adc68a6419d21d59
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741208767588
+status: 3
+tags: []
+user_id: feriel

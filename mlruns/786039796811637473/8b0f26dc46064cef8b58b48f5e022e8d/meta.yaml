@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/8b0f26dc46064cef8b58b48f5e022e8d/artifacts
+end_time: 1741208767554
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 8b0f26dc46064cef8b58b48f5e022e8d
+run_name: magnificent-eel-78
+run_uuid: 8b0f26dc46064cef8b58b48f5e022e8d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741208756994
+status: 3
+tags: []
+user_id: feriel

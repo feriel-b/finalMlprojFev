@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/771155dd44944ca3b0f5ec5750b9e1eb/artifacts
+end_time: 1741209104785
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 771155dd44944ca3b0f5ec5750b9e1eb
+run_name: glamorous-bug-814
+run_uuid: 771155dd44944ca3b0f5ec5750b9e1eb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741209094718
+status: 3
+tags: []
+user_id: feriel

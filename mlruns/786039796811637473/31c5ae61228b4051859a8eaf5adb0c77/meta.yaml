@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/31c5ae61228b4051859a8eaf5adb0c77/artifacts
+end_time: 1741249220813
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 31c5ae61228b4051859a8eaf5adb0c77
+run_name: skillful-frog-453
+run_uuid: 31c5ae61228b4051859a8eaf5adb0c77
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741249212248
+status: 3
+tags: []
+user_id: feriel

@@ -11,7 +11,7 @@ SHELL := /bin/bash
 .PHONY: all install check-code prepare train evaluate watch
 
 # Default target
-all: install check-code prepare train evaluate
+all: install  env prepare train evaluate check-code
 
 ci: check-code prepare train 
 # Create virtual environment and install dependencies

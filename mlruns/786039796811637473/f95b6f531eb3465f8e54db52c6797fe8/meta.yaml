@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/f95b6f531eb3465f8e54db52c6797fe8/artifacts
+end_time: 1741209075162
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: f95b6f531eb3465f8e54db52c6797fe8
+run_name: amazing-steed-274
+run_uuid: f95b6f531eb3465f8e54db52c6797fe8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741209065725
+status: 3
+tags: []
+user_id: feriel

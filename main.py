@@ -24,6 +24,7 @@ from pipeline import (
     load_model,
     plot_confusion_matrix,
     plot_roc_curve,
+    retrain_model
 )
 from mlflow.tracking import MlflowClient
 
@@ -114,6 +115,11 @@ def main(args):
         plot_roc_curve(y_test, y_proba, filename="roc_curve.png")
 
         print("✅ Evaluation complete. Metrics, confusion matrix and ROC curve logged.")
+    elif args.retrain:
+        print("\n🔄 Retraining model with default hyperparameters...")
+        # Call retrain_model with defaults, you can adjust C, kernel, gamma if needed
+        retrain_model(C=1.0, kernel="rbf", gamma="scale")
+        print("✅ Model retrained and loaded.")
 
 
 if __name__ == "__main__":
@@ -122,6 +128,7 @@ if __name__ == "__main__":
     parser.add_argument("--prepare", action="store_true", help="Préparer les données")
     parser.add_argument("--train", action="store_true", help="Entraîner le modèle")
     parser.add_argument("--evaluate", action="store_true", help="Évaluer le modèle")
+    parser.add_argument("--retrain", action="store_true", help="Retrainer le modèle")  # Added retrain flag
 
     args = parser.parse_args()
     main(args)
