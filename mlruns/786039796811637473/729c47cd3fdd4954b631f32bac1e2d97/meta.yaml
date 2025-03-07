@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/729c47cd3fdd4954b631f32bac1e2d97/artifacts
+end_time: 1741274021139
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 729c47cd3fdd4954b631f32bac1e2d97
+run_name: blushing-cub-909
+run_uuid: 729c47cd3fdd4954b631f32bac1e2d97
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741274013610
+status: 3
+tags: []
+user_id: feriel

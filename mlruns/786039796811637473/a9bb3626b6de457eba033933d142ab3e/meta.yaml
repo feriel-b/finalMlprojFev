@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/a9bb3626b6de457eba033933d142ab3e/artifacts
+end_time: 1741268627205
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: a9bb3626b6de457eba033933d142ab3e
+run_name: bedecked-dog-776
+run_uuid: a9bb3626b6de457eba033933d142ab3e
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741268614437
+status: 3
+tags: []
+user_id: feriel

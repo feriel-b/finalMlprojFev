@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/0eaf24df169649a2a690e842e55ea0d8/artifacts
+end_time: 1741268603236
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 0eaf24df169649a2a690e842e55ea0d8
+run_name: blushing-roo-256
+run_uuid: 0eaf24df169649a2a690e842e55ea0d8
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741268589749
+status: 3
+tags: []
+user_id: feriel

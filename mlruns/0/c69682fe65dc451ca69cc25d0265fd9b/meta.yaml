@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/0/c69682fe65dc451ca69cc25d0265fd9b/artifacts
+end_time: 1741268283038
+entry_point_name: ''
+experiment_id: '0'
+lifecycle_stage: active
+run_id: c69682fe65dc451ca69cc25d0265fd9b
+run_name: stately-fish-507
+run_uuid: c69682fe65dc451ca69cc25d0265fd9b
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741268276475
+status: 4
+tags: []
+user_id: feriel

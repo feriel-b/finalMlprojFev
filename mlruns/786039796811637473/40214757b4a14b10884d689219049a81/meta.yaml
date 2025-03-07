@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/40214757b4a14b10884d689219049a81/artifacts
+end_time: 1741274006010
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 40214757b4a14b10884d689219049a81
+run_name: bright-bass-353
+run_uuid: 40214757b4a14b10884d689219049a81
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741273997852
+status: 3
+tags: []
+user_id: feriel

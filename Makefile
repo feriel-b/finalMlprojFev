@@ -56,7 +56,9 @@ evaluate:
 
 serve:
 	@echo "Serving the model with FastAPI..."
-	@$(VENV)/bin/uvicorn app:app --reload --host 0.0.0.0 --port 8001
+	@$(VENV)/bin/uvicorn app:app --reload --host 0.0.0.0 --port 8000
+	@echo "Starting Flask web interface on port 5001..."
+	@$(VENV)/bin/python flask_app.py
 
 # Watch for changes and trigger pipeline
 watch:

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/80f884442b9446de8d3f564babf5911d/artifacts
+end_time: 1741271573355
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 80f884442b9446de8d3f564babf5911d
+run_name: bald-slug-484
+run_uuid: 80f884442b9446de8d3f564babf5911d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741271560723
+status: 3
+tags: []
+user_id: feriel

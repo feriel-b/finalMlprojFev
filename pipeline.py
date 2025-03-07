@@ -14,12 +14,90 @@ import mlflow.sklearn
 from mlflow.tracking import MlflowClient
 import time
 import os 
+import logging
+from elasticsearch import Elasticsearch
+from datetime import datetime
+
+# --- Elasticsearch and Logging Setup ---
+# Initialize Elasticsearch client
+elasticsearch_available = False
+es = None
+try:
+    es = Elasticsearch(['http://localhost:9200'], compatibility_mode=True)
+    elasticsearch_available = True
+except Exception as e:
+    print(f"Elasticsearch not available: {e}")
+    elasticsearch_available = False
 
 # warnings.filterwarnings("ignore")
 
 # Set MLflow tracking URI
 mlflow.set_tracking_uri("http://localhost:5000")
 mlflow.set_experiment("Churn_Pred")
+
+
+# Custom handler to send logs to Elasticsearch
+class ElasticsearchHandler(logging.Handler):
+    def __init__(self, es_client, index):
+        logging.Handler.__init__(self)
+        self.es = es_client
+        self.index = index
+
+    def emit(self, record):
+        try:
+
+            log_entry = self.format(record)
+            timestamp = datetime.fromtimestamp(record.created).isoformat()
+            if self.es.ping():  # Check if ES is available
+                self.es.index(index=self.index, body={
+                    "timestamp": timestamp,
+                    "level": record.levelname,
+                    "logger": record.name,
+                    "message": log_entry
+                })
+        except Exception as e :
+            print(f"Failed to log to Elasticsearch: {e}")
+        with open('fallback_logs.log', 'a') as f:
+            f.write(f"{timestamp} - {record.levelname} - {log_entry}\n")
+
+
+        # Configure MLflow logger
+mlflow_logger = logging.getLogger("mlflow")
+mlflow_logger.setLevel(logging.INFO)
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
+
+
+# Create the index if it doesn't exist
+if elasticsearch_available and es is not None:
+    try:
+        # Create the index if it doesn't exist
+        if not es.indices.exists(index='mlflow-metrics'):
+            mapping = {
+                "mappings": {
+                    "properties": {
+                        "timestamp": {"type": "date"},
+                        "level": {"type": "keyword"},
+                        "logger": {"type": "keyword"},
+                        "message": {"type": "text"}
+                    }
+                }
+            }
+            es.indices.create(index='mlflow-metrics', body=mapping)
+            # Add ES handler
+            es_handler = ElasticsearchHandler(es, 'mlflow-metrics')
+            es_handler.setFormatter(formatter)
+            mlflow_logger.addHandler(es_handler)
+    except Exception as e:
+        print(f"Failed to set up Elasticsearch logging: {e}")
+else:
+    # Fallback to console logging if ES is not available
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    mlflow_logger.addHandler(console_handler)
+    print("Using console logging as fallback (Elasticsearch not available)")
+        
+
+
 
 
 class FeaturePreprocessor(BaseEstimator, TransformerMixin):
@@ -105,75 +183,10 @@ def prepare_data(train_path="churn_80.csv", test_path="churn_20.csv"):
     
     return X_train, y_train, X_test, y_test
 
-"""
-def prepare_data(train_path="churn_80.csv", test_path="churn_20.csv"):
-   #Loads, cleans, and prepares data for training and evaluation.
-    print(f"Loading data from {train_path} and {test_path}")
-
-    # Check if files exist
-    if not os.path.exists(train_path) or not os.path.exists(test_path):
-        raise FileNotFoundError(
-            f"Data files not found. Please ensure {train_path} and {test_path} exist."
-        )
-
-    df_80 = pd.read_csv(train_path)
-    df_20 = pd.read_csv(test_path)
-
-    # Fill missing values
-    for col in df_80.select_dtypes(include=["float64", "int64"]).columns:
-        df_80[col] = df_80[col].fillna(df_80[col].mean())
-        df_20[col] = df_20[col].fillna(df_20[col].mean())
-
-    # Encode categorical features
-    categorical_features = ["International plan", "Voice mail plan"]
-    encoder = OrdinalEncoder()
-    df_80[categorical_features] = encoder.fit_transform(df_80[categorical_features])
-    df_20[categorical_features] = encoder.transform(df_20[categorical_features])
-
-    # One-hot encode "State"
-    df_80 = pd.get_dummies(df_80, columns=["State"], prefix="State")
-    df_20 = pd.get_dummies(df_20, columns=["State"], prefix="State")
-    df_20 = df_20.reindex(columns=df_80.columns, fill_value=0)
-
-    # Drop redundant features *before* scaling
-    redundant_features = [
-        "Total day charge",
-        "Total eve charge",
-        "Total night charge",
-        "Total intl charge",
-    ]
-    df_80.drop(columns=redundant_features, inplace=True, errors="ignore")
-    df_20.drop(columns=redundant_features, inplace=True, errors="ignore")
-
-    # Normalize data
-    scaler = MinMaxScaler()
-    df_80_scaled = pd.DataFrame(scaler.fit_transform(df_80), columns=df_80.columns)
-    df_20_scaled = pd.DataFrame(scaler.transform(df_20), columns=df_20.columns)
-
-    # Save preprocessors
-    joblib.dump(encoder, "encoder.joblib")
-    joblib.dump(scaler, "scaler.joblib")
-    feature_names = df_80_scaled.drop(columns=["Churn"]).columns.tolist()
-    joblib.dump(feature_names, "feature_names.joblib")
-
-    # Separate features and labels
-    X_train = df_80_scaled.drop(columns=["Churn"])
-    y_train = df_80_scaled["Churn"]
-    X_test = df_20_scaled.drop(columns=["Churn"])
-    y_test = df_20_scaled["Churn"]
-
-    print(f"Data prepared: X_train shape: {X_train.shape}, X_test shape: {X_test.shape}")
-    pd.set_option("display.max_columns", None)
-    print(X_train.head())
-    return X_train, y_train, X_test, y_test
-
-    """
-
 
 
 def train_model(X_train, y_train, X_test, y_test, C=1.0, kernel="rbf", gamma="scale"):
     """Trains an SVM model and logs with MLflow, returns (model, test_accuracy)."""
-   
     with mlflow.start_run() as run:  # Start a new MLflow run
         model = SVC(C=C, kernel=kernel, gamma=gamma, random_state=42, probability=True)
         model.fit(X_train, y_train)
@@ -212,12 +225,13 @@ def train_model(X_train, y_train, X_test, y_test, C=1.0, kernel="rbf", gamma="sc
         model_uri = f"runs:/{run_id}/svm_model"
         # Register the model
         registration_result = mlflow.register_model(model_uri, model_name)
-        # Optionally wait for the registration to complete
+        # Wait for the registration to complete
         time.sleep(5)
         try:
             client.transition_model_version_stage(
                 name=model_name, version=registration_result.version, stage="Production"
             )
+            mlflow_logger.info(f"Model version {registration_result.version} promoted to Production")
             print(f"✅ Model version {registration_result.version} promoted to Production")
         except Exception as e:
             print("Model promotion skipped:", e)
@@ -228,14 +242,18 @@ def train_model(X_train, y_train, X_test, y_test, C=1.0, kernel="rbf", gamma="sc
 def save_model(model, filename="churn_model.joblib"):
     """Saves the given model to a file."""
     joblib.dump(model, filename)
+    mlflow_logger.info(f"Model saved as {filename}")
     print(f"💾 Model saved as {filename}")
 
 
 def load_model(model_path="churn_model.joblib"):
     """Loads the trained model."""
     try:
-        return mlflow.sklearn.load_model("models:/ChurnPredictionSVM/Production")
+        model = mlflow.sklearn.load_model("models:/ChurnPredictionSVM/Production")
+        mlflow_logger.info("Model loaded from Production stage")
+        return model
     except Exception as e:
+        mlflow_logger.error(f"Model loading failed: {str(e)}")
         raise ValueError(f"Erreur de chargement : {str(e)}")
 
 
@@ -247,6 +265,7 @@ def evaluate_model(model, X_test, y_test):
 
     y_pred = model.predict(X_test)
     acc = accuracy_score(y_test, y_pred)
+    mlflow_logger.info(f"Model evaluation - Accuracy: {acc:.2f}")
     print(f"✅ Accuracy: {acc:.2f}")
     print("\n🔍 Classification Report:")
     print(classification_report(y_test, y_pred, target_names=["No Churn", "Churn"], zero_division=0))
@@ -272,6 +291,7 @@ def plot_confusion_matrix(
     plt.savefig(filename)
     print(f"💾 Confusion matrix saved as {filename}")
     plt.close()
+    mlflow_logger.info(f"Confusion matrix saved as {filename}")
     mlflow.log_artifact(
         filename
     )  # Log the confusion matrix image as an artifact in MLflow
@@ -322,5 +342,6 @@ def retrain_model(C=1.0, kernel='rbf', gamma='scale'):
     model = SVC(C=C, kernel=kernel, gamma=gamma, random_state=42, probability=True)
     model.fit(X_train, y_train)
     joblib.dump(model, "churn_model.joblib")
+    mlflow_logger.info(f"Model retrained with C={C}, kernel={kernel}, gamma={gamma}")
     print("✅ Model retrained and saved!")
 

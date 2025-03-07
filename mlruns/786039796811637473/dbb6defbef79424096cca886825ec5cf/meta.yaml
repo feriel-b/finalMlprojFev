@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/dbb6defbef79424096cca886825ec5cf/artifacts
+end_time: 1741271607632
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: dbb6defbef79424096cca886825ec5cf
+run_name: luxuriant-rook-201
+run_uuid: dbb6defbef79424096cca886825ec5cf
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741271596172
+status: 3
+tags: []
+user_id: feriel

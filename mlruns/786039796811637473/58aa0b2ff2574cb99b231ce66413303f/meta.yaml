@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/58aa0b2ff2574cb99b231ce66413303f/artifacts
+end_time: 1741343468946
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 58aa0b2ff2574cb99b231ce66413303f
+run_name: burly-kite-329
+run_uuid: 58aa0b2ff2574cb99b231ce66413303f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741343460347
+status: 3
+tags: []
+user_id: feriel

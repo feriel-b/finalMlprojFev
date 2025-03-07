@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/221ddd4af0054b2e87bb0e1e4bf1cc68/artifacts
+end_time: 1741268614406
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 221ddd4af0054b2e87bb0e1e4bf1cc68
+run_name: enchanting-cat-122
+run_uuid: 221ddd4af0054b2e87bb0e1e4bf1cc68
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741268603258
+status: 3
+tags: []
+user_id: feriel

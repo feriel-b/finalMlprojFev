@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/91648fc468be42d5a510c1f149cca8ad/artifacts
+end_time: 1741274054367
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 91648fc468be42d5a510c1f149cca8ad
+run_name: redolent-mare-847
+run_uuid: 91648fc468be42d5a510c1f149cca8ad
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741274054240
+status: 3
+tags: []
+user_id: feriel

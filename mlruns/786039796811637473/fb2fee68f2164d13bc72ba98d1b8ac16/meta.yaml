@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/fb2fee68f2164d13bc72ba98d1b8ac16/artifacts
+end_time: 1741271619025
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: fb2fee68f2164d13bc72ba98d1b8ac16
+run_name: funny-moose-601
+run_uuid: fb2fee68f2164d13bc72ba98d1b8ac16
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741271607667
+status: 3
+tags: []
+user_id: feriel

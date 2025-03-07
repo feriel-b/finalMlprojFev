@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/d8a914c8b183403ebeba54d51f37ef1a/artifacts
+end_time: 1741274028660
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: d8a914c8b183403ebeba54d51f37ef1a
+run_name: stylish-crow-610
+run_uuid: d8a914c8b183403ebeba54d51f37ef1a
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741274021152
+status: 3
+tags: []
+user_id: feriel

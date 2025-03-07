@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/c0d273c3166e4ffb890be3bdc7a1d190/artifacts
+end_time: 1741268589724
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: c0d273c3166e4ffb890be3bdc7a1d190
+run_name: mysterious-hog-161
+run_uuid: c0d273c3166e4ffb890be3bdc7a1d190
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741268577118
+status: 3
+tags: []
+user_id: feriel

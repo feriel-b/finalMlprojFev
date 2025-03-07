@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/86d26a3c294b4bddb9c5aa2ece4c8b46/artifacts
+end_time: 1741343423823
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 86d26a3c294b4bddb9c5aa2ece4c8b46
+run_name: dashing-finch-733
+run_uuid: 86d26a3c294b4bddb9c5aa2ece4c8b46
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741343414318
+status: 3
+tags: []
+user_id: feriel

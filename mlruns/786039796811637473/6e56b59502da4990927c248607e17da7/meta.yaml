@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/6e56b59502da4990927c248607e17da7/artifacts
+end_time: 1741271680660
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 6e56b59502da4990927c248607e17da7
+run_name: monumental-foal-367
+run_uuid: 6e56b59502da4990927c248607e17da7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741271680287
+status: 3
+tags: []
+user_id: feriel

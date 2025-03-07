@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/660bc15212eb4a09b33da81bf3b778ee/artifacts
+end_time: 1741268650329
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 660bc15212eb4a09b33da81bf3b778ee
+run_name: dashing-turtle-437
+run_uuid: 660bc15212eb4a09b33da81bf3b778ee
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741268638745
+status: 3
+tags: []
+user_id: feriel

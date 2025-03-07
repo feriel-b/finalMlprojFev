@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/2cb082db4308494fb60bfa59fafd3416/artifacts
+end_time: 1741343451388
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 2cb082db4308494fb60bfa59fafd3416
+run_name: overjoyed-smelt-296
+run_uuid: 2cb082db4308494fb60bfa59fafd3416
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741343440946
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/2cdca6c5af8f48f7b2522f8ab0296795/artifacts
+end_time: 1741343460328
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: 2cdca6c5af8f48f7b2522f8ab0296795
+run_name: bemused-hog-471
+run_uuid: 2cdca6c5af8f48f7b2522f8ab0296795
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741343451401
+status: 3
+tags: []
+user_id: feriel

@@ -1,0 +1,15 @@
+artifact_uri: mlflow-artifacts:/786039796811637473/ea453ba2e7d64515a0ff1cf82cca29f4/artifacts
+end_time: 1741274013600
+entry_point_name: ''
+experiment_id: '786039796811637473'
+lifecycle_stage: active
+run_id: ea453ba2e7d64515a0ff1cf82cca29f4
+run_name: casual-flea-367
+run_uuid: ea453ba2e7d64515a0ff1cf82cca29f4
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741274006022
+status: 3
+tags: []
+user_id: feriel
